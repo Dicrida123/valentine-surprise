@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise for Ruth</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #8B0000;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .hidden { display: none; }
+        input { padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <div class="container" id="welcome">
+        <h2>Valentine's Day</h2>
+        <p>The day of love and affection. It only comes once a year, and even though we're not together this year, Ruth, I want you to know my heart is with you and will forever belong to you. I love you so much, and with this, I'm showing you a token of my love. Navigate through this little presentation of love that I made.</p>
+        <button onclick="showRiddle()">Proceed</button>
+    </div>
+
+    <div class="container hidden" id="riddle">
+        <h3>Riddle: Our last date?</h3>
+        <input type="text" id="answer" placeholder="Your answer here">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="feedback" style="color: yellow;"></p>
+    </div>
+
+    <div class="container hidden" id="video">
+        <h3>Listen to this with love and affection ❤️</h3>
+        <p><a href="https://youtu.be/NCUI2ziMzgw" target="_blank">Click here to listen</a></p>
+        <br>
+        <button onclick="showLetter()">Next</button>
+    </div>
+
+    <div class="container hidden" id="letter">
+        <h3>My Love Letter to You ❤️</h3>
+        <p>My dearest Ruth,</p>
+        <p>From the moment you came into my life, you changed everything. You are my joy, my peace, my safe place. Even though we're apart this Valentine's Day, I want you to know that my love for you is as strong as ever. Every moment with you is a blessing, and I can't wait to hold you in my arms again. You are my forever, my always. I love you endlessly.</p>
+        <p>Yours forever,<br>Michael</p>
+    </div>
+
+    <script>
+        function showRiddle() {
+            document.getElementById('welcome').classList.add('hidden');
+            document.getElementById('riddle').classList.remove('hidden');
+        }
+
+        function checkAnswer() {
+            var answer = document.getElementById('answer').value.toLowerCase();
+            if (answer === 'movie date') {
+                document.getElementById('riddle').classList.add('hidden');
+                document.getElementById('video').classList.remove('hidden');
+            } else {
+                document.getElementById('feedback').innerText = 'Try again, my love! 💖';
+            }
+        }
+
+        function showLetter() {
+            document.getElementById('video').classList.add('hidden');
+            document.getElementById('letter').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
